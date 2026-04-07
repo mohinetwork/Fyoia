@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Hanken_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { ScrollToTop } from "@/components/ui/ScrollAnimations"
 import GradualBlur from "@/components/GradualBlur"
 
-const hkGrotesk = Hanken_Grotesk({
-  weight: ['400'],
+const hkGrotesk = localFont({
+  src: '../fonts/hanken-grotesk-latin-400-normal.woff2',
+  weight: '400',
   style: 'normal',
-  subsets: ['latin'],
   variable: '--font-hk-grotesk',
   display: 'swap',
 })
 
-
-const instrumentSerif = Instrument_Serif({
-  weight: ['400'],
+const instrumentSerif = localFont({
+  src: '../fonts/instrument-serif-latin-400-normal.woff2',
+  weight: '400',
   style: 'normal',
-  subsets: ['latin'],
-  variable: '--font-instrument-serif'
+  variable: '--font-instrument-serif',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
