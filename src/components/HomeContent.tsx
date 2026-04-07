@@ -20,18 +20,7 @@ import GitHubActivity from './GitHubActivity'
 import AboutMe from './AboutMe'
 import SpotifyPlayer from './SpotifyPlayer'
 
-function calculateAge(dob: Date): number {
-  const today = new Date();
-  let age = today.getFullYear() - dob.getFullYear();
-  const m = today.getMonth() - dob.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
-  return age;
-}
-
-const DOB = new Date('2007-03-31');
-
 export default function NewHeroSection() {
-  const age = calculateAge(DOB).toString();
   return (
     <div className="min-h-screen transition-colors duration-300 relative" style={{ fontFamily: 'var(--font-hk-grotesk)' }}>
       <div className="relative mx-auto max-w-4xl">
@@ -53,7 +42,6 @@ export default function NewHeroSection() {
           <Reveal delay={0.2}>
             <ProfileHeader
               name="Mohit Gupta"
-              age={age}
               title="Developer • Builder • Web Dev"
               profileImage="/pfp.jpg"
               socialLinks={{
