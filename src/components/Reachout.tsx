@@ -1,5 +1,5 @@
 'use client'
-import { FaInstagram, FaXTwitter, FaGithub } from "react-icons/fa6";
+import { FaInstagram, FaXTwitter, FaGithub, FaPaperclip } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { Tooltip } from "./ui/tooltip-card";
 import Image from "next/image";
@@ -99,16 +99,7 @@ export default function Reachout({
           )}
 
           {socialLinks.instagram && (
-            <Tooltip content={
-              <Image
-                width={1596}
-                height={1108}
-                src="/github.png"
-                alt="Instagram"
-                className="rounded-sm max-w-full h-auto"
-                unoptimized
-              />
-            }>
+            <Tooltip content="Instagram">
               <a
                 className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-black/5 dark:bg-white/10 has-hover:hover:bg-black/10 dark:has-hover:hover:bg-white/20 transition-[colors] duration-200 rounded-full touch-manipulation active:opacity-75"
                 href={socialLinks.instagram}
