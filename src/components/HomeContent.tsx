@@ -20,18 +20,7 @@ import GitHubActivity from './GitHubActivity'
 import AboutMe from './AboutMe'
 import SpotifyPlayer from './SpotifyPlayer'
 
-function calculateAge(dob: Date): number {
-  const today = new Date();
-  let age = today.getFullYear() - dob.getFullYear();
-  const m = today.getMonth() - dob.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
-  return age;
-}
-
-const DOB = new Date('2007-03-31');
-
 export default function NewHeroSection() {
-  const age = calculateAge(DOB).toString();
   return (
     <div className="min-h-screen transition-colors duration-300 relative" style={{ fontFamily: 'var(--font-hk-grotesk)' }}>
       <div className="relative mx-auto max-w-4xl">
@@ -53,7 +42,6 @@ export default function NewHeroSection() {
           <Reveal delay={0.2}>
             <ProfileHeader
               name="Mohit Gupta"
-              age={age}
               title="Developer • Builder • Web Dev"
               profileImage="/pfp.jpg"
               socialLinks={{
@@ -88,6 +76,20 @@ export default function NewHeroSection() {
                   <ContentParagraph className="mb-4 text-base sm:text-lg">
                     <span className="font-medium dark:text-white text-black">I build from zero.</span> Whether it&apos;s frontend, backend, full-stack applications, or AI-powered experiences, I work across the entire development lifecycle. From UI/UX to deployment to user feedback, I care less about technology debates and more about delivering results that people love using.
                   </ContentParagraph>
+
+                  {/* Stats Strip */}
+                  <div className="flex flex-wrap gap-3 sm:gap-4 mt-4 mb-2 px-2 sm:px-0">
+                    {[
+                      { label: 'Projects shipped', value: '4+' },
+                      { label: 'Years building', value: '2+' },
+                      { label: 'Tech stack tools', value: '20+' },
+                    ].map((stat) => (
+                      <div key={stat.label} className="flex items-baseline gap-1.5">
+                        <span className="text-xl sm:text-2xl font-semibold text-black dark:text-white leading-none">{stat.value}</span>
+                        <span className="text-xs sm:text-sm text-black/40 dark:text-white/40">{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
 
                   {/* Spotify Player */}
                   <div className="mt-4 sm:mt-6 px-2 sm:px-0">
